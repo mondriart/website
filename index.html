@@ -1,375 +1,265 @@
 <!DOCTYPE html>
-<html lang="nl" >
+<html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Muziek Workshops & Gitaarles</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-
+  <title>MondriArt — Boomwhacker Workshops voor Teams</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
   <style>
-    /* Reset & basics */
+    /* Reset */
     *, *::before, *::after {
       margin: 0; padding: 0; box-sizing: border-box;
     }
     body {
       font-family: 'Poppins', sans-serif;
-      background: #ffffff;
-      color: #222222;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      background: #e6f0ff;
+      color: #222;
+      line-height: 1.6;
       scroll-behavior: smooth;
     }
     a {
-      color: #4a90e2;
+      color: #1e3a8a;
       text-decoration: none;
-      font-weight: 600;
-      position: relative;
-      transition: color 0.25s ease;
-    }
-    a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #4a90e2;
-      transition: width 0.25s ease;
+      font-weight: 700;
+      transition: color 0.3s ease;
     }
     a:hover, a:focus {
-      color: #357ABD;
+      color: #3b82f6;
       outline: none;
     }
-    a:hover::after, a:focus::after {
-      width: 100%;
-    }
-
-    /* Sticky header */
     header {
       position: sticky;
       top: 0;
-      background: #ffffff;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      background: white;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
       z-index: 1000;
       padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
     }
-    nav {
-      width: 100%;
-      max-width: 900px;
-      display: flex;
-      justify-content: space-around;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #1e3a8a;
+      letter-spacing: 0.1em;
+      user-select: none;
     }
     nav a {
-      padding: 0.5rem 0;
-      cursor: pointer;
-    }
-
-    /* Hero */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 6rem 2rem 5rem;
-      max-width: 900px;
-      margin: 0 auto;
-      color: #222222;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
+      font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
     }
-    .hero p {
-      font-size: 1.25rem;
-      max-width: 600px;
-      color: #555555;
-      margin-bottom: 3rem;
-      font-weight: 500;
-      line-height: 1.5;
+    nav a:hover, nav a:focus {
+      background-color: #dbeafe;
+      outline: none;
     }
 
-    .btn-primary {
-      background-color: #4a90e2;
-      color: white;
-      font-weight: 600;
-      padding: 0.9rem 2.5rem;
-      border-radius: 30px;
-      cursor: pointer;
-      border: none;
-      box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* Sections */
+    section {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    section.light {
+      background: #e6f0ff;
+    }
+    section.dark {
+      background: #ffffff;
+    }
+    h1, h2 {
+      color: #1e3a8a;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
+    }
+    h1 {
+      font-size: 3.6rem;
+      line-height: 1.1;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+    p {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 500;
       font-size: 1.15rem;
+      color: #444;
+    }
+    /* Quote style */
+    #quote {
+      font-style: italic;
+      font-size: 2.5rem;
+      max-width: 700px;
+      margin: 0 auto 4rem auto;
+      color: #1e3a8a;
       user-select: none;
-      letter-spacing: 0.03em;
+      background: transparent;
+      padding: 0;
+    }
+    #quote b {
+      font-weight: 900;
+      color: #1e3a8a;
+    }
+
+    /* Hero Button */
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 1.25rem 3rem;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgb(59 130 246 / 0.5);
+      transition: background 0.3s ease, transform 0.15s ease;
+      user-select: none;
+      margin-top: 2rem;
+      text-decoration: none;
+      text-align: center;
     }
     .btn-primary:hover,
     .btn-primary:focus {
-      background-color: #357ABD;
-      box-shadow: 0 10px 30px rgba(53, 122, 189, 0.5);
+      background: linear-gradient(90deg, #3b82f6 0%, #1e3a8a 100%);
+      transform: translateY(-3px);
       outline: none;
-      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgb(59 130 246 / 0.7);
     }
 
-    main {
-      max-width: 850px;
-      margin: 0 auto 5rem;
-      padding: 0 2rem;
+    /* Removed blue block in workshops */
+    #workshops .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* Why MondriArt grid */
+    #waarde .grid {
+      max-width: 900px;
+      margin: 0 auto;
       display: grid;
-      gap: 3rem;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+      text-align: center;
     }
-
-    section {
-      background: #f9f9f9;
-      border-radius: 12px;
-      padding: 2.5rem 3rem;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-      color: #444444;
+    #waarde .grid-item {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 6px 18px rgb(59 130 246 / 0.1);
+      font-weight: 600;
+      color: #1e3a8a;
+      font-size: 1.1rem;
+      user-select: none;
       transition: box-shadow 0.3s ease;
     }
-    section:hover {
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    }
-    section h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: 0.01em;
-      color: #222222;
-    }
-    section p {
-      font-weight: 500;
-      font-size: 1.1rem;
-      line-height: 1.6;
+    #waarde .grid-item:hover {
+      box-shadow: 0 12px 30px rgb(59 130 246 / 0.3);
     }
 
+    /* Contact */
+    #contact p {
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 500;
+      font-size: 1.15rem;
+    }
+
+    /* Footer zonder border-top */
     footer {
+      background: #e6f0ff;
       text-align: center;
       padding: 2rem 1rem;
-      color: #888888;
-      font-weight: 500;
-      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+      color: #888;
       user-select: none;
-      border-top: 1px solid #eeeeee;
-      margin-top: auto;
-      font-size: 0.9rem;
-    }
-
-    /* Modal Contact Form */
-    .modal-bg {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.35);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1100;
-      padding: 1rem;
-    }
-    .modal-bg.active {
-      display: flex;
-    }
-    .modal {
-      background: white;
-      border-radius: 12px;
-      padding: 2rem 2.5rem;
-      max-width: 420px;
-      width: 100%;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-      color: #222222;
-      position: relative;
-      font-weight: 500;
-    }
-    .modal h3 {
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-      font-size: 1.8rem;
-      color: #4a90e2;
-      text-align: center;
-    }
-    .modal label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      margin-top: 1rem;
-      color: #555555;
-    }
-    .modal input, .modal textarea {
-      width: 100%;
-      padding: 0.7rem 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      font-family: 'Poppins', sans-serif;
-      resize: none;
-      transition: border-color 0.25s ease;
-      color: #222222;
-    }
-    .modal input:focus, .modal textarea:focus {
-      outline: none;
-      border-color: #4a90e2;
-      box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
-    }
-    .modal textarea {
-      min-height: 100px;
-    }
-    .modal button {
-      margin-top: 2rem;
-      width: 100%;
-      background: #4a90e2;
-      color: white;
-      font-weight: 600;
-      border: none;
-      padding: 1rem;
-      border-radius: 30px;
-      font-size: 1.15rem;
-      cursor: pointer;
-      box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-    }
-    .modal button:hover, .modal button:focus {
-      background: #357ABD;
-      box-shadow: 0 10px 30px rgba(53, 122, 189, 0.5);
-      outline: none;
-      transform: translateY(-2px);
-    }
-    .modal .close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1.5rem;
-      font-size: 2rem;
-      cursor: pointer;
-      color: #999999;
-      font-weight: 700;
-      transition: color 0.3s ease;
-      background: none;
-      border: none;
-    }
-    .modal .close-btn:hover, .modal .close-btn:focus {
-      color: #4a90e2;
-      outline: none;
+      border-top: none;
+      margin-top: 4rem;
     }
 
     /* Responsive */
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2.5rem;
+    @media (max-width: 720px) {
+      #workshops .container {
+        text-align: center;
       }
-      main {
-        margin: 2rem 1rem 4rem;
-        padding: 0 1rem;
-      }
-      section {
-        padding: 2rem 1.5rem;
-      }
-      nav {
-        font-size: 1rem;
+      p {
+        text-align: center;
       }
     }
   </style>
 </head>
-
 <body>
 
   <header>
+    <div class="logo" aria-label="MondriArt logo">MONDRIART</div>
     <nav aria-label="Hoofd navigatie">
-      <a href="#workshops">Workshops</a>
-      <a href="#gitaarles">Gitaarles</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact" aria-label="Contact MondriArt">Contact</a>
     </nav>
   </header>
 
-  <section class="hero" role="banner" aria-label="Introductie muziek workshops en gitaarles">
-    <h1>Muziek Workshops voor Bedrijven</h1>
-    <p>Boost de teamspirit met interactieve muziekworkshops. Ook privé- en groepsgitaarlessen voor alle niveaus.</p>
-    <button class="btn-primary" id="btnContact">Plan een gratis kennismaking</button>
+  <section id="hero" class="light" role="banner" aria-label="Introductie muziek workshops">
+    <h1>Boost je team met MondriArt</h1>
+    <p>
+      Speelse boomwhacker workshops waar plezier en samenwerken centraal staan.  
+      Stap uit je comfortzone en eindig samen met een ‘winning feeling’.
+    </p>
+    <div style="text-align:center; margin-top: 2rem;">
+      <a
+        href="mailto:pieter@mondriart.nl?subject=Offerte-aanvraag%20MondriArt&body=Hi%20Pieter,%0A%0AGraag%20ontvang%20ik%20een%20offerte%20voor%20de%20boomwhacker%20workshops.%0A%0AAlvast%20bedankt!%0A%0AMet%20vriendelijke%20groet,%0A%0A%5BJe%20naam%20hier%5D"
+        class="btn-primary"
+        id="btnContact"
+        aria-label="Vraag vrijblijvend een offerte aan"
+        >Vraag vrijblijvend een offerte aan</a
+      >
+    </div>
   </section>
 
-  <main role="main">
-    <section id="workshops" tabindex="0" aria-label="Muziek Workshops sectie">
-      <h2>Workshops</h2>
-      <p>Mijn workshops zijn gericht op plezier, samenwerking en creativiteit. Samen muziek maken verbindt teams op een unieke manier.</p>
-    </section>
+  <section id="quote" aria-label="Quote over de workshop">
+    <p>"De kracht van de workshop is de <b>lichtheid</b> ervan."</p>
+  </section>
 
-    <section id="gitaarles" tabindex="0" aria-label="Gitaarles sectie">
-      <h2>Gitaarles</h2>
-      <p>Of je nu beginner bent of al gevorderd, mijn gitaarlessen zijn persoonlijk, laagdrempelig en effectief. Ook mogelijk in groepsverband.</p>
-    </section>
-
-    <section id="contact" tabindex="0" aria-label="Contact sectie">
-      <h2>Contact</h2>
-      <p>Wil je meer weten of een workshop plannen? Stuur een mail naar <a href="mailto:info@jouwdomein.nl">info@jouwdomein.nl</a> of bel <strong>06-12345678</strong>.</p>
-    </section>
-  </main>
-
-  <footer role="contentinfo">
-    &copy; 2025 Jouw Naam. Alle rechten voorbehouden.
-  </footer>
-
-  <!-- Modal Contact Form -->
-  <div class="modal-bg" id="modalBg" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal">
-      <button class="close-btn" id="closeModal" aria-label="Sluit contactformulier">&times;</button>
-      <h3 id="modalTitle">Contactformulier</h3>
-      <form id="contactForm" action="https://formspree.io/f/mgebvrga" method="POST" novalidate>
-        <!-- Vervang hierboven de formspree endpoint met jouw eigen endpoint! -->
-        <label for="name">Naam</label>
-        <input type="text" id="name" name="name" required autocomplete="name" placeholder="Jouw naam" />
-
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="_replyto" required autocomplete="email" placeholder="jouw@email.com" />
-
-        <label for="message">Bericht</label>
-        <textarea id="message" name="message" required placeholder="Wat wil je vragen of vertellen?"></textarea>
-
-        <button type="submit">Verstuur</button>
-      </form>
+  <section id="workshops" class="dark" tabindex="0" aria-label="Muziek Workshops sectie">
+    <h2>Over de workshop</h2>
+    <div class="container">
+      <p>
+        Ontdek hoe muziek en ritme op een speelse manier de samenwerking in jouw team versterken. Met simpele oefeningen creëer je een ontspannen sfeer waarin plezier en verbinding centraal staan. Deze workshop helpt mensen uit hun comfortzone te stappen, brengt energie en creativiteit los, en zorgt voor een frisse boost in communicatie en teamspirit. Perfect om samen even te ontsnappen aan de dagelijkse routine en met een positieve mindset weer aan het werk te gaan.
+      </p>
     </div>
-  </div>
+  </section>
 
-  <script>
-    // Modal open/close
-    const btnContact = document.getElementById('btnContact');
-    const modalBg = document.getElementById('modalBg');
-    const closeModal = document.getElementById('closeModal');
-    const contactForm = document.getElementById('contactForm');
+  <section id="waarde" class="light" tabindex="0" aria-label="Waarde van workshops MondriArt">
+    <h2>Waarom MondriArt?</h2>
+    <div class="grid">
+      <div class="grid-item">Meer plezier en verbinding</div>
+      <div class="grid-item">Betere communicatie</div>
+      <div class="grid-item">Creativiteit en energie</div>
+      <div class="grid-item">Ontspannen sfeer</div>
+    </div>
+  </section>
 
-    btnContact.addEventListener('click', () => {
-      modalBg.classList.add('active');
-      modalBg.setAttribute('aria-hidden', 'false');
-      document.getElementById('name').focus();
-    });
+  <section id="contact" tabindex="0" aria-label="Contact sectie">
+    <h2>Contact</h2>
+    <p>
+      Wil je meer weten of direct een workshop boeken?  
+      Stuur een mail naar <a href="mailto:pieter@mondriart.nl">pieter@mondriart.nl</a>.
+    </p>
+  </section>
 
-    closeModal.addEventListener('click', () => {
-      modalBg.classList.remove('active');
-      modalBg.setAttribute('aria-hidden', 'true');
-      btnContact.focus();
-    });
-
-    modalBg.addEventListener('click', e => {
-      if (e.target === modalBg) {
-        modalBg.classList.remove('active');
-        modalBg.setAttribute('aria-hidden', 'true');
-        btnContact.focus();
-      }
-    });
-
-    // Optioneel: client-side validatie en alert bij succesvolle submit
-    contactForm.addEventListener('submit', e => {
-      // Laat Formspree afhandelen; hier kun je eventueel validatie toevoegen
-      alert('Bedankt voor je bericht! Ik neem snel contact op.');
-      modalBg.classList.remove('active');
-      modalBg.setAttribute('aria-hidden', 'true');
-      btnContact.focus();
-    });
-  </script>
+  <footer>
+    &copy; 2025 MondriArt — Alle rechten voorbehouden.
+  </footer>
 
 </body>
 </html>
