@@ -175,6 +175,11 @@
       margin-right: auto;
       font-weight: 500;
       font-size: 1.15rem;
+      outline: none; /* Verwijder focus outline */
+    }
+    #contact:focus {
+      outline: none; /* Verwijder outline bij focus op contactsectie */
+      box-shadow: none !important; /* Eventuele schaduw weghalen */
     }
 
     /* Footer zonder border-top */
@@ -209,15 +214,15 @@
     </nav>
   </header>
 
-  <section id="hero" class="light" role="banner" aria-label="Introductie muziek workshops">
+  <section id="hero" class="light" role="banner" aria-label="Introductie muziek workshop">
     <h1>Boost je team met MondriArt</h1>
     <p>
-      Speelse boomwhacker workshops waar plezier en samenwerken centraal staan.  
+      Speelse boomwhacker workshop waar plezier en samenwerken centraal staan.  
       Stap uit je comfortzone en eindig samen met een ‘winning feeling’.
     </p>
     <div style="text-align:center; margin-top: 2rem;">
       <a
-        href="mailto:pieter@mondriart.nl?subject=Offerte-aanvraag%20MondriArt&body=Hi%20Pieter,%0A%0AGraag%20ontvang%20ik%20een%20offerte%20voor%20de%20boomwhacker%20workshops.%0A%0AAlvast%20bedankt!"
+        href="mailto:pieter@mondriart.nl?subject=Offerte-aanvraag%20MondriArt&body=Hi%20Pieter,%0A%0AGraag%20ontvang%20ik%20een%20offerte%20voor%20de%20boomwhacker%20workshop.%0A%0AAlvast%20bedankt!"
         class="btn-primary"
         id="btnContact"
         aria-label="Vraag vrijblijvend een offerte aan"
@@ -230,7 +235,7 @@
     <p>"De kracht van de workshop is de <b>lichtheid</b> ervan."</p>
   </section>
 
-  <section id="workshops" class="dark" tabindex="0" aria-label="Muziek Workshops sectie">
+  <section id="workshops" class="dark" tabindex="0" aria-label="Muziek Workshop sectie">
     <h2>Over de workshop</h2>
     <div class="container">
       <p>
@@ -239,7 +244,7 @@
     </div>
   </section>
 
-  <section id="waarde" class="light" tabindex="0" aria-label="Waarde van workshops MondriArt">
+  <section id="waarde" class="light" tabindex="0" aria-label="Waarde van workshop MondriArt">
     <h2>Waarom MondriArt?</h2>
     <div class="grid">
       <div class="grid-item">Meer plezier en verbinding</div>
