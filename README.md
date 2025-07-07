@@ -1,1 +1,1 @@
-Website for MondriArt.
+Website for MondriArt!
